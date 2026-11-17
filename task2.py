@@ -5,10 +5,13 @@ plt.style.use("ggplot")
 
 fname = "task2data.csv"
 rawdata = np.loadtxt(fname, delimiter=",", skiprows=1)
-applied_voltage = rawdata[:,0]
-diode_current = rawdata[:,1]
-assert len(applied_voltage) == len(diode_current)
+V_in = rawdata[:,0]
+V_out = rawdata[:,1]
 
+resistance = 10_000
+assert len(V_in) == len(V_out)
+applied_voltage = [V_in[i] - V_out[i] for i in range(len(V_in)) ]
+diode_current = [applied_voltage[j] / resistance for j in range(len(applied_voltage))]
 
 fig, ax = plt.subplots()
 ax.plot(applied_voltage, diode_current,linestyle=" ",marker='.',color="k")
