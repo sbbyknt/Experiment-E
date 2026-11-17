@@ -14,7 +14,7 @@ V_squared = np.array([value ** 2 for value in V])
 V_squared_over_R_L = np.array([V_squared[i] / R_L[i] for i in range(len(V))])
 
 fig, ax = plt.subplots()
-ax.plot(R_L,V_squared_over_R_L)
+ax.plot(R_L,V_squared_over_R_L,linestyle=" ", marker='.',color="k")
 ax.set_xlabel("$R_L$, ($\Omega$)")
 ax.set_ylabel("$V^2 / R_L$, ($W$)")
 plt.show()
