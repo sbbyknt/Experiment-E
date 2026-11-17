@@ -16,5 +16,6 @@ diode_current = [applied_voltage[j] / resistance for j in range(len(applied_volt
 fig, ax = plt.subplots()
 ax.plot(applied_voltage, diode_current,linestyle=" ",marker='.',color="k")
 ax.set_xlabel("Applied voltage ($V$)")
+ax.set_xscale("log") #used logscale to show sudden jump
 ax.set_ylabel("Diode current ($I_D$)")
 plt.show()
