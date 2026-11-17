@@ -34,5 +34,7 @@ ax.set_ylabel("$V^2 / R_L$, ($W$)")
 plt.show()
 
 #we need to find the maximum power transferred, which is given by dP/dR_L = 0
+#we will use the cubic that approximates our data
 
-
+def g(x):
+    y = 3 * parameters[0] * (x**2) + 2 * parameters[1] * x + parameters[2]
