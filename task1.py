@@ -15,8 +15,8 @@ V_squared_over_R_L = np.array([V_squared[i] / R_L[i] for i in range(len(V))])
 
 #using SciPy to try and model a curve
 #Source: https://education.molssi.org/python-data-analysis/03-data-fitting/index.html
-def f(x, A, B, C):
-    y = A * (x**2) + B * x + C
+def f(x, A, B, C, D):
+    y = A * (x**3) + B * (x**2) + C * x + D
     return y
 parameters, covariance = scp.optimize.curve_fit(f, R_L, V_squared_over_R_L)
 
@@ -25,7 +25,7 @@ ax.plot(R_L,V_squared_over_R_L,linestyle=" ", marker='.',color="k")
 #plotting fitted curve and smoothing it
 
 moreR_L = np.linspace(np.min(R_L), np.max(R_L), 1000)
-fit_polynomial = f(moreR_L, parameters[0], parameters[1], parameters[2])
+fit_polynomial = f(moreR_L, parameters[0], parameters[1], parameters[2], parameters[3])
 ax.plot(moreR_L, fit_polynomial, color="red")
 
 
